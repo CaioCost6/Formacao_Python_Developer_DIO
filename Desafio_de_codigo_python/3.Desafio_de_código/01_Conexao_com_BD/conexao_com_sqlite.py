@@ -44,16 +44,12 @@ class Conta(Base):
 print(Cliente.__tablename__)
 print(Conta.__tablename__)
 
-# conexão com o banco de dados
+
 engine = create_engine("sqlite://")
 
-# criando as classes como tabelas no banco de dados
 Base.metadata.create_all(engine)
 
-# depreciado - será removido em futuro release
-# print(engine.table_names())
 
-# investiga o esquema de banco de dados
 inspetor_engine = inspect(engine)
 print(inspetor_engine.has_table("cliente_banco"))
 print(inspetor_engine.get_table_names())
@@ -104,7 +100,6 @@ print("\n")
 for result in session.scalars(stmt_join):
     print(result)
 
-# print(select(User.fullname, Address.email_address).join_from(Address, User))
 
 connection = engine.connect()
 results = connection.execute(stmt_join).fetchall()
