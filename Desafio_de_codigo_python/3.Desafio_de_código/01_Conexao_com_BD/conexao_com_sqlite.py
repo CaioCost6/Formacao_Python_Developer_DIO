@@ -74,7 +74,7 @@ with Session(engine) as session:
         conta = [Conta(agencia='0004')]
     )
 
-    # enviando para o BD (persitência de dados)
+    
     session.add_all([juliana, sandy, patrick])
 
     session.commit()
