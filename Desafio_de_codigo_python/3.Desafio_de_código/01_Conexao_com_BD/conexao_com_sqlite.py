@@ -115,3 +115,4 @@ results = connection.execute(stmt_join).fetchall()
 print("\nExecutando statement a partir da connection:")
 for result in results:
     print(result)
+
