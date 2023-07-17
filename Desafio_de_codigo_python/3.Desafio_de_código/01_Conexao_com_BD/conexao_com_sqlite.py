@@ -84,8 +84,13 @@ with Session(engine) as session:
 
     session.commit()
 
-stmt = select(Cliente).where(Cliente.name.in_(["juliana", "sandy", "patrick"]))
+stmt = select(Cliente)
 print('\nRecuperando usuários:')
+for cliente in session.scalars(stmt):
+    print(cliente)
+
+stmt = select(Cliente).where(Cliente.name.in_(["juliana", "sandy"]))
+print('\nRecuperando usuários por filtro:')
 for cliente in session.scalars(stmt):
     print(cliente)
 
